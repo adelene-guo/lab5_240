@@ -34,7 +34,8 @@ module alu (
    output logic [3:0]  condCodes,
    input [15:0]      inA,
    input [15:0]      inB,
-   input  alu_op_t      opcode);
+   input  cin_bit_t  cin,
+   input  alu_op_t opcode);
 
    logic Z, C, N, V;
 
@@ -47,6 +48,10 @@ module alu (
          F_A_PLUS_B : begin
             {C, out} = inA + inB;                     // A+B
             V = (inA[15] & inB[15] & ~out[15]) | (~inA[15] & ~inB[15] & out[15]);
+         end
+         F_A_ADD32_B: begin
+            {C, out} = inA + inB + cin;
+            V = (inA[15] & inB[15] & ~out[15]) | (~inA[15] & ~inB[15] & out[15]); 
          end
          F_A_MINUS_B : begin
             out = inA - inB;                          // A-B (set carry below)

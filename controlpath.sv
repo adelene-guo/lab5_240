@@ -62,28 +62,28 @@ module controlpath (
    always_comb begin
       case (currState)
         FETCH: begin
-           out = {F_A, MUX_PC, 2'bxx, DEST_MAR, NO_LOAD, NO_RD, NO_WR};
+           out = {F_A, MUX_PC, 2'bxx, DEST_MAR, NO_LOAD, NO_RD, NO_WR, NO_UPPER, NO_CIN};
            nextState = FETCH1;
          end
         FETCH1: begin
-           out = {F_A_PLUS_2, MUX_PC, 2'bxx, DEST_PC, NO_LOAD, MEM_RD, NO_WR};
+           out = {F_A_PLUS_2, MUX_PC, 2'bxx, DEST_PC, NO_LOAD, MEM_RD, NO_WR, NO_UPPER, NO_CIN};
            nextState = FETCH2;
          end
         FETCH2: begin
-           out = {F_A, MUX_MDR, 2'bxx, DEST_IR, NO_LOAD, NO_RD, NO_WR};
+           out = {F_A, MUX_MDR, 2'bxx, DEST_IR, NO_LOAD, NO_RD, NO_WR, NO_UPPER, NO_CIN};
            nextState = DECODE;
         end
         DECODE: begin
-           out = {4'bxxxx, 2'bxx, 2'bxx, DEST_NONE, NO_LOAD, NO_RD, NO_WR};
+           out = {4'bxxxx, 2'bxx, 2'bxx, DEST_NONE, NO_LOAD, NO_RD, NO_WR, NO_UPPER, NO_CIN};
            nextState = opcode_t'(IRIn[15:9]);
          //  $cast(nextState, IRIn[15:6]);
         end
         STOP: begin
-           out = {4'bxxxx, 2'bxx, 2'bxx, DEST_NONE, NO_LOAD, NO_RD, NO_WR};
+           out = {4'bxxxx, 2'bxx, 2'bxx, DEST_NONE, NO_LOAD, NO_RD, NO_WR, NO_UPPER, NO_CIN};
            nextState = STOP1;
         end
         STOP1: begin
-           out = {4'bxxxx, 2'bxx, 2'bxx, DEST_NONE, NO_LOAD, NO_RD, NO_WR}; // same as above
+           out = {4'bxxxx, 2'bxx, 2'bxx, DEST_NONE, NO_LOAD, NO_RD, NO_WR, NO_UPPER, NO_CIN}; // same as above
            nextState = STOP1; // This is to avoid a latch
 `ifndef synthesis
            $display("STOP occurred at time %d", $time);
@@ -92,271 +92,289 @@ module controlpath (
         end
         // Arithmetic functions:
         ADD: begin
-           out = {F_A_PLUS_B, MUX_REG, MUX_REG, DEST_REG, LOAD_CC, NO_RD, NO_WR};
+           out = {F_A_PLUS_B, MUX_REG, MUX_REG, DEST_REG, LOAD_CC, NO_RD, NO_WR, NO_UPPER, NO_CIN};
+           nextState = FETCH;
+        end
+        ADD32: begin
+           if (C) begin
+             out = {F_A_ADD32_B, MUX_REG, MUX_REG, DEST_REG, LOAD_CC, NO_RD, NO_WR, NO_UPPER, CIN};
+             nextState = ADD32_C;
+           end
+           else begin
+             out = {F_A_ADD32_B, MUX_REG, MUX_REG, DEST_REG, LOAD_CC, NO_RD, NO_WR, NO_UPPER, NO_CIN}; 
+             nextState = ADD32_NC;
+           end
+        end
+        ADD32_C: begin
+           out = {F_A_ADD32_B, MUX_REG, MUX_REG, DEST_REG, LOAD_CC, NO_RD, NO_WR, UPPER, NO_CIN};
+           nextState = FETCH;
+        end
+        ADD32_NC: begin
+           out = {F_A_ADD32_B, MUX_REG, MUX_REG, DEST_REG, LOAD_CC, NO_RD, NO_WR, UPPER, NO_CIN};
            nextState = FETCH;
         end
         SUB: begin
-           out = {F_A_MINUS_B, MUX_REG, MUX_REG, DEST_REG, LOAD_CC, NO_RD, NO_WR};
+           out = {F_A_MINUS_B, MUX_REG, MUX_REG, DEST_REG, LOAD_CC, NO_RD, NO_WR, NO_UPPER, NO_CIN};
            nextState = FETCH;
         end
         // Branch functions:
         BRA: begin
-           out = {F_A, MUX_PC,2'bxx, DEST_MAR, NO_LOAD, NO_RD, NO_WR};
+           out = {F_A, MUX_PC,2'bxx, DEST_MAR, NO_LOAD, NO_RD, NO_WR, NO_UPPER, NO_CIN};
            nextState = BRA1;
         end
         BRA1: begin
-           out = {4'bxxxx, 2'bxx,2'bxx, DEST_NONE, NO_LOAD, MEM_RD, NO_WR};
+           out = {4'bxxxx, 2'bxx,2'bxx, DEST_NONE, NO_LOAD, MEM_RD, NO_WR, NO_UPPER, NO_CIN};
            nextState = BRA2;
         end
         BRA2: begin
-           out = {F_A, MUX_MDR,2'bxx, DEST_PC, NO_LOAD, NO_RD, NO_WR};
+           out = {F_A, MUX_MDR,2'bxx, DEST_PC, NO_LOAD, NO_RD, NO_WR, NO_UPPER, NO_CIN};
            nextState = FETCH;
         end
         BRN: begin
-           out = {F_A, MUX_PC,2'bxx, DEST_MAR, NO_LOAD, NO_RD, NO_WR};
+           out = {F_A, MUX_PC,2'bxx, DEST_MAR, NO_LOAD, NO_RD, NO_WR, NO_UPPER, NO_CIN};
            if (N) 
              nextState = BRN2;
            else 
              nextState = BRN1;
         end
         BRN1: begin
-           out = {F_A_PLUS_2, MUX_PC,2'bxx, DEST_PC, NO_LOAD, NO_RD, NO_WR};
+           out = {F_A_PLUS_2, MUX_PC,2'bxx, DEST_PC, NO_LOAD, NO_RD, NO_WR, NO_UPPER, NO_CIN};
            nextState = FETCH;
         end
         BRN2: begin
-           out = {4'bxxxx, 2'bxx,2'bxx, DEST_NONE, NO_LOAD, MEM_RD, NO_WR};
+           out = {4'bxxxx, 2'bxx,2'bxx, DEST_NONE, NO_LOAD, MEM_RD, NO_WR, NO_UPPER, NO_CIN};
            nextState = BRN3;
         end
         BRN3: begin
-           out = {F_A, MUX_MDR,2'bxx, DEST_PC, NO_LOAD, NO_RD, NO_WR};
+           out = {F_A, MUX_MDR,2'bxx, DEST_PC, NO_LOAD, NO_RD, NO_WR, NO_UPPER, NO_CIN};
            nextState = FETCH;
         end
         BRZ: begin
-           out = {F_A, MUX_PC,2'bxx, DEST_MAR, NO_LOAD, NO_RD, NO_WR};
+           out = {F_A, MUX_PC,2'bxx, DEST_MAR, NO_LOAD, NO_RD, NO_WR, NO_UPPER, NO_CIN};
            if (Z) 
              nextState = BRZ2;
            else 
              nextState = BRZ1;
         end
         BRZ1: begin
-           out = {F_A_PLUS_2, MUX_PC,2'bxx, DEST_PC, NO_LOAD, NO_RD, NO_WR};
+           out = {F_A_PLUS_2, MUX_PC,2'bxx, DEST_PC, NO_LOAD, NO_RD, NO_WR, NO_UPPER, NO_CIN};
            nextState = FETCH;
         end
         BRZ2: begin
-           out = {4'bxxxx, 2'bxx,2'bxx, DEST_NONE, NO_LOAD, MEM_RD, NO_WR};
+           out = {4'bxxxx, 2'bxx,2'bxx, DEST_NONE, NO_LOAD, MEM_RD, NO_WR, NO_UPPER, NO_CIN};
            nextState = BRZ3;
         end
         BRZ3: begin
-           out = {F_A, MUX_MDR,2'bxx, DEST_PC, NO_LOAD, NO_RD, NO_WR};
+           out = {F_A, MUX_MDR,2'bxx, DEST_PC, NO_LOAD, NO_RD, NO_WR, NO_UPPER, NO_CIN};
            nextState = FETCH;
         end       
         BRC: begin
-           out = {F_A, MUX_PC,2'bxx, DEST_MAR, NO_LOAD, NO_RD, NO_WR};
+           out = {F_A, MUX_PC,2'bxx, DEST_MAR, NO_LOAD, NO_RD, NO_WR, NO_UPPER, NO_CIN};
            if (C) 
              nextState = BRC2;
            else 
              nextState = BRC1;
         end
         BRC1: begin
-           out = {F_A_PLUS_2, MUX_PC,2'bxx, DEST_PC, NO_LOAD, NO_RD, NO_WR};
+           out = {F_A_PLUS_2, MUX_PC,2'bxx, DEST_PC, NO_LOAD, NO_RD, NO_WR, NO_UPPER, NO_CIN};
            nextState = FETCH;
         end
         BRC2: begin
-           out = {4'bxxxx, 2'bxx,2'bxx, DEST_NONE, NO_LOAD, MEM_RD, NO_WR};
+           out = {4'bxxxx, 2'bxx,2'bxx, DEST_NONE, NO_LOAD, MEM_RD, NO_WR, NO_UPPER, NO_CIN};
            nextState = BRC3;
         end
         BRC3: begin
-           out = {F_A, MUX_MDR,2'bxx, DEST_PC, NO_LOAD, NO_RD, NO_WR};
+           out = {F_A, MUX_MDR,2'bxx, DEST_PC, NO_LOAD, NO_RD, NO_WR, NO_UPPER, NO_CIN};
            nextState = FETCH;
         end
         BRV: begin
-           out = {F_A, MUX_PC,2'bxx, DEST_MAR, NO_LOAD, NO_RD, NO_WR};
+           out = {F_A, MUX_PC,2'bxx, DEST_MAR, NO_LOAD, NO_RD, NO_WR, NO_UPPER, NO_CIN};
            if (V) 
              nextState = BRV2;
            else 
              nextState = BRV1;
         end
         BRV1: begin
-           out = {F_A_PLUS_2, MUX_PC,2'bxx, DEST_PC, NO_LOAD, NO_RD, NO_WR};
+           out = {F_A_PLUS_2, MUX_PC,2'bxx, DEST_PC, NO_LOAD, NO_RD, NO_WR, NO_UPPER, NO_CIN};
            nextState = FETCH;
         end
         BRV2: begin
-           out = {4'bxxxx, 2'bxx,2'bxx, DEST_NONE, NO_LOAD, MEM_RD, NO_WR};
+           out = {4'bxxxx, 2'bxx,2'bxx, DEST_NONE, NO_LOAD, MEM_RD, NO_WR, NO_UPPER, NO_CIN};
            nextState = BRV3;
         end
         BRV3: begin
-           out = {F_A, MUX_MDR,2'bxx, DEST_PC, NO_LOAD, NO_RD, NO_WR};
+           out = {F_A, MUX_MDR,2'bxx, DEST_PC, NO_LOAD, NO_RD, NO_WR, NO_UPPER, NO_CIN};
            nextState = FETCH;
         end 
         BRNZ: begin
-            out = {F_A, MUX_PC, 2'bxx, DEST_MAR, NO_LOAD, NO_RD, NO_WR};
+            out = {F_A, MUX_PC, 2'bxx, DEST_MAR, NO_LOAD, NO_RD, NO_WR, NO_UPPER, NO_CIN};
             if(N | Z)
               nextState = BRNZ2;
             else
               nextState = BRNZ1;
         end
         BRNZ1: begin
-            out = {F_A_PLUS_2, MUX_PC, 2'bxx, DEST_PC, NO_LOAD, NO_RD, NO_WR};
+            out = {F_A_PLUS_2, MUX_PC, 2'bxx, DEST_PC, NO_LOAD, NO_RD, NO_WR, NO_UPPER, NO_CIN};
             nextState = FETCH;
         end
         BRNZ2: begin
-            out = {4'bxxxx, 2'bxx, 2'bxx, DEST_NONE, NO_LOAD, MEM_RD, NO_WR};
+            out = {4'bxxxx, 2'bxx, 2'bxx, DEST_NONE, NO_LOAD, MEM_RD, NO_WR, NO_UPPER, NO_CIN};
             nextState = BRNZ3;
         end
         BRNZ3: begin
-            out = {F_A, MUX_MDR, 2'bxx, DEST_PC, NO_LOAD, NO_RD, NO_WR};
+            out = {F_A, MUX_MDR, 2'bxx, DEST_PC, NO_LOAD, NO_RD, NO_WR, NO_UPPER, NO_CIN};
             nextState = FETCH;
         end
         // Logical functions:
         AND: begin
-           out = {F_A_AND_B, MUX_REG, MUX_REG, DEST_REG, LOAD_CC, NO_RD, NO_WR};
+           out = {F_A_AND_B, MUX_REG, MUX_REG, DEST_REG, LOAD_CC, NO_RD, NO_WR, NO_UPPER, NO_CIN};
            nextState = FETCH;
         end
         NOT: begin
-           out = {F_A_NOT, MUX_REG,2'bxx, DEST_REG, LOAD_CC, NO_RD, NO_WR};
+           out = {F_A_NOT, MUX_REG,2'bxx, DEST_REG, LOAD_CC, NO_RD, NO_WR, NO_UPPER, NO_CIN};
            nextState = FETCH;
         end
         OR: begin
-           out = {F_A_OR_B, MUX_REG, MUX_REG, DEST_REG, LOAD_CC, NO_RD, NO_WR};
+           out = {F_A_OR_B, MUX_REG, MUX_REG, DEST_REG, LOAD_CC, NO_RD, NO_WR, NO_UPPER, NO_CIN};
            nextState = FETCH;
         end
         XOR: begin
-           out = {F_A_XOR_B, MUX_REG, MUX_REG, DEST_REG, LOAD_CC, NO_RD, NO_WR};
+           out = {F_A_XOR_B, MUX_REG, MUX_REG, DEST_REG, LOAD_CC, NO_RD, NO_WR, NO_UPPER, NO_CIN};
            nextState = FETCH;
         end
         // Shift functions:
         SLL: begin
-          out = {F_A_SHL, MUX_REG, MUX_REG, DEST_REG, LOAD_CC, NO_RD, NO_WR};
+          out = {F_A_SHL, MUX_REG, MUX_REG, DEST_REG, LOAD_CC, NO_RD, NO_WR, NO_UPPER, NO_CIN};
           nextState = FETCH;
         end
         SLLI: begin
-          out = {F_A, MUX_PC, 2'bxx, DEST_MAR, NO_LOAD, NO_RD, NO_WR};
+          out = {F_A, MUX_PC, 2'bxx, DEST_MAR, NO_LOAD, NO_RD, NO_WR, NO_UPPER, NO_CIN};
           nextState = SLLI1;
         end
         SLLI1: begin
-          out = {F_A_PLUS_2, MUX_PC, 2'bxx, DEST_PC, NO_LOAD, MEM_RD, NO_WR};
+          out = {F_A_PLUS_2, MUX_PC, 2'bxx, DEST_PC, NO_LOAD, MEM_RD, NO_WR, NO_UPPER, NO_CIN};
           nextState = SLLI2;
         end
         SLLI2: begin
-          out = {F_A_SHL, MUX_REG, MUX_MDR, DEST_REG, LOAD_CC, NO_RD, NO_WR};
+          out = {F_A_SHL, MUX_REG, MUX_MDR, DEST_REG, LOAD_CC, NO_RD, NO_WR, NO_UPPER, NO_CIN};
           nextState = FETCH;
         end
         SRA: begin
-          out = {F_A_ASHR, MUX_REG, MUX_REG, DEST_REG, LOAD_CC, NO_RD, NO_WR};
+          out = {F_A_ASHR, MUX_REG, MUX_REG, DEST_REG, LOAD_CC, NO_RD, NO_WR, NO_UPPER, NO_CIN};
           nextState = FETCH;
         end
         SRAI: begin
-          out = {F_A, MUX_PC, 2'bxx, DEST_MAR, NO_LOAD, NO_RD, NO_WR};
+          out = {F_A, MUX_PC, 2'bxx, DEST_MAR, NO_LOAD, NO_RD, NO_WR, NO_UPPER, NO_CIN};
           nextState = SRAI1;
         end
         SRAI1: begin
-          out = {F_A_PLUS_2, MUX_PC, 2'bxx, DEST_PC, NO_LOAD, MEM_RD, NO_WR};
+          out = {F_A_PLUS_2, MUX_PC, 2'bxx, DEST_PC, NO_LOAD, MEM_RD, NO_WR, NO_UPPER, NO_CIN};
           nextState = SRAI2;
         end
         SRAI2: begin
-          out = {F_A_ASHR, MUX_REG, MUX_MDR, DEST_REG, LOAD_CC, NO_RD, NO_WR};
+          out = {F_A_ASHR, MUX_REG, MUX_MDR, DEST_REG, LOAD_CC, NO_RD, NO_WR, NO_UPPER, NO_CIN};
           nextState = FETCH;
         end
         SRL: begin
-          out = {F_A_LSHR, MUX_REG, MUX_REG, DEST_REG, LOAD_CC, NO_RD, NO_WR};
+          out = {F_A_LSHR, MUX_REG, MUX_REG, DEST_REG, LOAD_CC, NO_RD, NO_WR, NO_UPPER, NO_CIN};
           nextState = FETCH;
         end
         SRLI: begin
-          out = {F_A, MUX_PC, 2'bxx, DEST_MAR, NO_LOAD, NO_RD, NO_WR};
+          out = {F_A, MUX_PC, 2'bxx, DEST_MAR, NO_LOAD, NO_RD, NO_WR, NO_UPPER, NO_CIN};
           nextState = SRLI1;
         end
         SRLI1: begin
-          out = {F_A_PLUS_2, MUX_PC, 2'bxx, DEST_PC, NO_LOAD, MEM_RD, NO_WR};
+          out = {F_A_PLUS_2, MUX_PC, 2'bxx, DEST_PC, NO_LOAD, MEM_RD, NO_WR, NO_UPPER, NO_CIN};
           nextState = SRLI2;
         end
         SRLI2: begin
-          out = {F_A_LSHR, MUX_REG, MUX_MDR, DEST_REG, LOAD_CC, NO_RD, NO_WR};
+          out = {F_A_LSHR, MUX_REG, MUX_MDR, DEST_REG, LOAD_CC, NO_RD, NO_WR, NO_UPPER, NO_CIN};
           nextState = FETCH;
         end
         // CC Setting functions:
         SLT: begin
-          out = {F_A_MINUS_B, MUX_REG, MUX_REG, DEST_NONE, LOAD_CC, NO_RD, NO_WR};
+          out = {F_A_MINUS_B, MUX_REG, MUX_REG, DEST_NONE, LOAD_CC, NO_RD, NO_WR, NO_UPPER, NO_CIN};
           nextState = SLT1;
         end
         SLT1: begin
-          out = {F_A_LT_B, MUX_REG, MUX_REG, DEST_REG, NO_LOAD, NO_RD, NO_WR};
+          out = {F_A_LT_B, MUX_REG, MUX_REG, DEST_REG, NO_LOAD, NO_RD, NO_WR, NO_UPPER, NO_CIN};
           nextState = FETCH;
         end
         SLTI: begin
-          out = {F_A, MUX_PC, 2'bxx, DEST_MAR, NO_LOAD, NO_RD, NO_WR};
+          out = {F_A, MUX_PC, 2'bxx, DEST_MAR, NO_LOAD, NO_RD, NO_WR, NO_UPPER, NO_CIN};
           nextState = SLTI1;
         end
         SLTI1: begin
-          out = {F_A_PLUS_2, MUX_PC, 2'bxx, DEST_PC, NO_LOAD, MEM_RD, NO_WR};
+          out = {F_A_PLUS_2, MUX_PC, 2'bxx, DEST_PC, NO_LOAD, MEM_RD, NO_WR, NO_UPPER, NO_CIN};
           nextState = SLTI2;
         end
         SLTI2: begin
-          out = {F_A_MINUS_B, MUX_REG, MUX_MDR, DEST_NONE, LOAD_CC, NO_RD, NO_WR};
+          out = {F_A_MINUS_B, MUX_REG, MUX_MDR, DEST_NONE, LOAD_CC, NO_RD, NO_WR, NO_UPPER, NO_CIN};
           nextState = SLTI3;
         end
         SLTI3: begin
-          out = {F_A_LT_B, MUX_REG, MUX_MDR, DEST_REG, NO_LOAD, NO_RD, NO_WR};
+          out = {F_A_LT_B, MUX_REG, MUX_MDR, DEST_REG, NO_LOAD, NO_RD, NO_WR, NO_UPPER, NO_CIN};
           nextState = FETCH;
         end
         // Data movement functions:
         MV: begin
-           out = {F_A, MUX_REG, 2'bxx, DEST_REG, NO_LOAD, NO_RD, NO_WR};
+           out = {F_A, MUX_REG, 2'bxx, DEST_REG, NO_LOAD, NO_RD, NO_WR, NO_UPPER, NO_CIN};
            nextState = FETCH;
         end
         ADDI: begin
-           out = {F_A, MUX_PC, 2'bxx, DEST_MAR, NO_LOAD, NO_RD, NO_WR};
+           out = {F_A, MUX_PC, 2'bxx, DEST_MAR, NO_LOAD, NO_RD, NO_WR, NO_UPPER, NO_CIN};
            nextState = ADDI1;
         end
         ADDI1: begin
-           out = {F_A_PLUS_2, MUX_PC, 2'bxx, DEST_PC, NO_LOAD, MEM_RD, NO_WR};
+           out = {F_A_PLUS_2, MUX_PC, 2'bxx, DEST_PC, NO_LOAD, MEM_RD, NO_WR, NO_UPPER, NO_CIN};
            nextState = ADDI2;
         end
         ADDI2: begin
-           out = {F_A_PLUS_B, MUX_REG, MUX_MDR, DEST_REG, LOAD_CC, NO_RD, NO_WR};
+           out = {F_A_PLUS_B, MUX_REG, MUX_MDR, DEST_REG, LOAD_CC, NO_RD, NO_WR, NO_UPPER, NO_CIN};
            nextState = FETCH;
         end
         LW: begin
-           out = {F_A, MUX_PC, 2'bxx, DEST_MAR, NO_LOAD, NO_RD, NO_WR};
+           out = {F_A, MUX_PC, 2'bxx, DEST_MAR, NO_LOAD, NO_RD, NO_WR, NO_UPPER, NO_CIN};
            nextState = LW1;
         end
         LW1: begin
-           out = {F_A_PLUS_2, MUX_PC, 2'bxx, DEST_PC, NO_LOAD, MEM_RD, NO_WR};
+           out = {F_A_PLUS_2, MUX_PC, 2'bxx, DEST_PC, NO_LOAD, MEM_RD, NO_WR, NO_UPPER, NO_CIN};
            nextState = LW2;
         end
         LW2: begin
-           out = {F_A_PLUS_B, MUX_REG, MUX_MDR, DEST_MAR, NO_LOAD, NO_RD, NO_WR};
+           out = {F_A_PLUS_B, MUX_REG, MUX_MDR, DEST_MAR, NO_LOAD, NO_RD, NO_WR, NO_UPPER, NO_CIN};
            nextState = LW3;
         end
         LW3: begin
-           out = {4'bxxxx, 2'bxx, 2'bxx, DEST_NONE, NO_LOAD, MEM_RD, NO_WR};
+           out = {4'bxxxx, 2'bxx, 2'bxx, DEST_NONE, NO_LOAD, MEM_RD, NO_WR, NO_UPPER, NO_CIN};
            nextState = LW4;
         end
         LW4: begin
-           out = {F_A, MUX_MDR, 2'bxx, DEST_REG, LOAD_CC, NO_RD, NO_WR};
+           out = {F_A, MUX_MDR, 2'bxx, DEST_REG, LOAD_CC, NO_RD, NO_WR, NO_UPPER, NO_CIN};
            nextState = FETCH;
         end
         SW: begin
-           out = {F_A, MUX_PC, 2'bxx, DEST_MAR, NO_LOAD, NO_RD, NO_WR};
+           out = {F_A, MUX_PC, 2'bxx, DEST_MAR, NO_LOAD, NO_RD, NO_WR, NO_UPPER, NO_CIN};
            nextState = SW1;
         end
         SW1: begin
-           out = {F_A_PLUS_2, MUX_PC, 2'bxx, DEST_PC, NO_LOAD, MEM_RD, NO_WR};
+           out = {F_A_PLUS_2, MUX_PC, 2'bxx, DEST_PC, NO_LOAD, MEM_RD, NO_WR, NO_UPPER, NO_CIN};
            nextState = SW2;
         end
         SW2: begin
-           out = {F_A_PLUS_B, MUX_REG, MUX_MDR, DEST_MAR, NO_LOAD, NO_RD, NO_WR};
+           out = {F_A_PLUS_B, MUX_REG, MUX_MDR, DEST_MAR, NO_LOAD, NO_RD, NO_WR, NO_UPPER, NO_CIN};
            nextState = SW3;
         end
         SW3: begin
-           out = {F_B, 2'bxx, MUX_REG, DEST_MDR, NO_LOAD, NO_RD, NO_WR};
+           out = {F_B, 2'bxx, MUX_REG, DEST_MDR, NO_LOAD, NO_RD, NO_WR, NO_UPPER, NO_CIN};
            nextState = SW4;
         end
         SW4: begin
-           out = {4'bxxxx, 2'bxx, 2'bxx, DEST_NONE, NO_LOAD, NO_RD, MEM_WR};
+           out = {4'bxxxx, 2'bxx, 2'bxx, DEST_NONE, NO_LOAD, NO_RD, MEM_WR, NO_UPPER, NO_CIN};
            nextState = FETCH;
         end
         default: begin
-           out = 14'bx;
+           out = 16'bx;
            nextState = FETCH;
         end
      endcase

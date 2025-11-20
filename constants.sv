@@ -34,7 +34,7 @@ typedef enum logic[3:0]{ // ALU operation select
    F_B           = 4'b0011,
    F_A_PLUS_2    = 4'b0100,
    F_A_LT_B      = 4'b0101,
-   // 4'b0110 reserved for future operations
+   F_A_ADD32_B   = 4'b0110, 
    // 4'b0111 reserved for future operations
    F_A_NOT       = 4'b1000,
    F_A_AND_B     = 4'b1001,
@@ -79,6 +79,16 @@ typedef enum logic{ // Condition code
    NO_LOAD       = 1'b1
 } cond_code_t; // Condition code
 
+typedef enum logic{ // Upper Logic 
+   NO_UPPER       = 1'b0,
+   UPPER          = 1'b1
+} upper_en_t; // Upper Bit
+
+typedef enum logic{ // Carry In Logic 
+   NO_CIN         = 1'b0,
+   CIN            = 1'b1
+} cin_bit_t; // Carry In
+
 typedef enum logic [6:0] {
 // Microcode operations (i.e., FSM states)
    FETCH  = 7'b000_1001,
@@ -89,11 +99,14 @@ typedef enum logic [6:0] {
    STOP1  = 7'b100_0001,
 
 // Arithmetic operations: ADD, SUB, ADDI/LI
-   ADD    = 7'b000_0000,
-   SUB    = 7'b000_1000,
-   ADDI   = 7'b001_1000,
-   ADDI1  = 7'b001_1001,
-   ADDI2  = 7'b001_1010,
+   ADD      = 7'b000_0000,
+   SUB      = 7'b000_1000,
+   ADDI     = 7'b001_1000,
+   ADDI1    = 7'b001_1001,
+   ADDI2    = 7'b001_1010,
+   ADD32    = 7'b011_0010,
+   ADD32_C  = 7'b011_0011,   
+   ADD32_NC = 7'b011_0100,
 
 // Logical operations: AND, NOT, OR, XOR
    AND    = 7'b100_1000,
@@ -176,6 +189,8 @@ typedef struct packed
    cond_code_t lcc_L;
    rd_enable_t re_L;
    wr_enable_t we_L;
+   upper_en_t upper;
+   cin_bit_t cin;
 } controlPts;
 
 `endif

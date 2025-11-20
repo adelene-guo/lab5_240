@@ -56,15 +56,34 @@ module datapath (
 
    assign memAddr = {marOut, 1'b0};
 
+   logic rs1_mux_out, rs2_mux_out, rd_mux_out;
+   logic [2:0] selRD_final, selRS1_final, selRS2_final;
+   
+   //RS1 Interm Adder-Mux 
+   Mux2to1 #(.WIDTH(16)) RS1(.I0('0), .I1(16'b1), .S(cPts.upper), 
+                             .Y(rs1_mux_out));
+   Adder #(.WIDTH(16)) RS1_ADDR(.A(rs1_mux_out), .B(selRS1), .cin('0), 
+                                .cout('0), .sum(selRS1_final));
+   //RS2 Interm Adder-Mux 
+   Mux2to1 #(.WIDTH(16)) RS2(.I0('0), .I1(16'b1), .S(cPts.upper), 
+                             .Y(rs2_mux_out));
+   Adder #(.WIDTH(16)) RS2_ADDR(.A(rs2_mux_out), .B(selRS2), .cin('0), 
+                                .cout('0), .sum(selRS2_final));
+   //RD Interm Adder-Mux 
+   Mux2to1 #(.WIDTH(16)) RD(.I0('0), .I1(16'b1), .S(cPts.upper), 
+                            .Y(rd_mux_out));
+   Adder #(.WIDTH(16)) RD_ADDR(.A(rd_mux_out), .B(selRSD), .cin('0), 
+                                .cout('0), .sum(selRD_final));
+
    // Instantiate the modules that we need:
    reg_file rfile(
            .outRS1(regRS1),
            .outRS2(regRS2),
            .outView(viewReg),
            .in(aluResult),
-           .selRD,
-           .selRS1,
-           .selRS2,
+           .selRD(selRD_final),
+           .selRS1(selRS1_final),
+           .selRS2(selRS2_final),
            .clock,
            .reset_L,
            .load_L(loadReg_L));
@@ -85,7 +104,7 @@ module datapath (
                              .sel(cPts.srcB));
 
    alu alu_dp(.out(aluResult), .condCodes(newCC), .inA(aluSrcA), .inB(aluSrcB),
-              .opcode(cPts.alu_op));
+              .cin(cPts.cin), .opcode(cPts.alu_op));
 
    logic [7:0] dest_out;
    decoder #(8) reg_load_decoder(.I(cPts.dest),
