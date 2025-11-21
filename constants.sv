@@ -105,8 +105,7 @@ typedef enum logic [6:0] {
    ADDI1    = 7'b001_1001,
    ADDI2    = 7'b001_1010,
    ADD32    = 7'b011_0010,
-   ADD32_C  = 7'b011_0011,   
-   ADD32_NC = 7'b011_0100,
+   ADD32_1  = 7'b011_0011,   
 
 // Logical operations: AND, NOT, OR, XOR
    AND    = 7'b100_1000,

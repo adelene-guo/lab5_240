@@ -1,0 +1,9 @@
+{"vcs1":{"timestamp_begin":1763679842.407945943, "rt":0.82, "ut":0.46, "st":0.25}}
+{"vcselab":{"timestamp_begin":1763679843.412567239, "rt":0.86, "ut":0.57, "st":0.25}}
+{"link":{"timestamp_begin":1763679844.407840770, "rt":0.66, "ut":0.23, "st":0.41}}
+{"SNPS_VCS_INTERNAL_ROOT_START_TIME": 1763679841.474096564}
+{"VCS_COMP_START_TIME": 1763679841.474096564}
+{"VCS_COMP_END_TIME": 1763679845.237061969}
+{"VCS_USER_OPTIONS": "-sverilog alu.sv constants.sv controlpath.sv datapath.sv library.sv memory.sv regfile.sv RISC240.sv SSegDisplayDriver.sv"}
+{"vcs1": {"peak_mem": 2358853}}
+{"stitch_vcselab": {"peak_mem": 2358995}}

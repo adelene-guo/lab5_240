@@ -324,3 +324,26 @@ module comb_write_reg
    end
 
 endmodule : comb_write_reg
+
+module Adder 
+    #(parameter WIDTH = 6) 
+    (input logic [WIDTH-1:0] A,
+    input logic [WIDTH-1:0] B,
+    input logic cin,     
+    output logic [WIDTH-1:0] sum,     
+    output logic cout);
+
+    assign {cout, sum} = A + B + cin;
+
+endmodule : Adder
+
+module Mux2to1 
+    #(parameter WIDTH = 6) 
+    (input logic [WIDTH-1:0] I0,
+    input logic [WIDTH-1:0] I1,
+    input logic S,    
+    output logic [WIDTH-1:0] Y);
+
+    assign Y = (S) ? I1 : I0;
+
+endmodule : Mux2to1

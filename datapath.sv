@@ -56,24 +56,24 @@ module datapath (
 
    assign memAddr = {marOut, 1'b0};
 
-   logic rs1_mux_out, rs2_mux_out, rd_mux_out;
+   logic [2:0] rs1_mux_out, rs2_mux_out, rd_mux_out;
    logic [2:0] selRD_final, selRS1_final, selRS2_final;
    
    //RS1 Interm Adder-Mux 
-   Mux2to1 #(.WIDTH(16)) RS1(.I0('0), .I1(16'b1), .S(cPts.upper), 
+   Mux2to1 #(.WIDTH(3)) RS1(.I0(3'b0), .I1(3'b1), .S(cPts.upper), 
                              .Y(rs1_mux_out));
-   Adder #(.WIDTH(16)) RS1_ADDR(.A(rs1_mux_out), .B(selRS1), .cin('0), 
-                                .cout('0), .sum(selRS1_final));
+   Adder #(.WIDTH(3)) RS1_ADDR(.A(rs1_mux_out), .B(selRS1), .cin('0), 
+                                .cout(), .sum(selRS1_final));
    //RS2 Interm Adder-Mux 
-   Mux2to1 #(.WIDTH(16)) RS2(.I0('0), .I1(16'b1), .S(cPts.upper), 
+   Mux2to1 #(.WIDTH(3)) RS2(.I0(3'b0), .I1(3'b1), .S(cPts.upper), 
                              .Y(rs2_mux_out));
-   Adder #(.WIDTH(16)) RS2_ADDR(.A(rs2_mux_out), .B(selRS2), .cin('0), 
-                                .cout('0), .sum(selRS2_final));
+   Adder #(.WIDTH(3)) RS2_ADDR(.A(rs2_mux_out), .B(selRS2), .cin('0), 
+                                .cout(), .sum(selRS2_final));
    //RD Interm Adder-Mux 
-   Mux2to1 #(.WIDTH(16)) RD(.I0('0), .I1(16'b1), .S(cPts.upper), 
+   Mux2to1 #(.WIDTH(3)) RD(.I0(3'b0), .I1(3'b1), .S(cPts.upper), 
                             .Y(rd_mux_out));
-   Adder #(.WIDTH(16)) RD_ADDR(.A(rd_mux_out), .B(selRSD), .cin('0), 
-                                .cout('0), .sum(selRD_final));
+   Adder #(.WIDTH(3)) RD_ADDR(.A(rd_mux_out), .B(selRD), .cin('0), 
+                                .cout(), .sum(selRD_final));
 
    // Instantiate the modules that we need:
    reg_file rfile(

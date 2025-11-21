@@ -96,22 +96,18 @@ module controlpath (
            nextState = FETCH;
         end
         ADD32: begin
-           if (C) begin
-             out = {F_A_ADD32_B, MUX_REG, MUX_REG, DEST_REG, LOAD_CC, NO_RD, NO_WR, NO_UPPER, CIN};
-             nextState = ADD32_C;
-           end
-           else begin
-             out = {F_A_ADD32_B, MUX_REG, MUX_REG, DEST_REG, LOAD_CC, NO_RD, NO_WR, NO_UPPER, NO_CIN}; 
-             nextState = ADD32_NC;
-           end
+           out = {F_A_ADD32_B, MUX_REG, MUX_REG, DEST_REG, LOAD_CC, NO_RD, NO_WR, NO_UPPER, NO_CIN};     
+           nextState = ADD32_1;
         end
-        ADD32_C: begin
-           out = {F_A_ADD32_B, MUX_REG, MUX_REG, DEST_REG, LOAD_CC, NO_RD, NO_WR, UPPER, NO_CIN};
-           nextState = FETCH;
-        end
-        ADD32_NC: begin
-           out = {F_A_ADD32_B, MUX_REG, MUX_REG, DEST_REG, LOAD_CC, NO_RD, NO_WR, UPPER, NO_CIN};
-           nextState = FETCH;
+        ADD32_1: begin
+         if (C) begin
+            out = {F_A_ADD32_B, MUX_REG, MUX_REG, DEST_REG, NO_LOAD, NO_RD, NO_WR, UPPER, CIN};
+            nextState = FETCH;
+         end
+         else begin
+            out = {F_A_ADD32_B, MUX_REG, MUX_REG, DEST_REG, NO_LOAD, NO_RD, NO_WR, UPPER, NO_CIN};
+            nextState = FETCH;
+         end
         end
         SUB: begin
            out = {F_A_MINUS_B, MUX_REG, MUX_REG, DEST_REG, LOAD_CC, NO_RD, NO_WR, NO_UPPER, NO_CIN};

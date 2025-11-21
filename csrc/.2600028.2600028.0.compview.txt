@@ -1,0 +1,5 @@
+{"vcs1":{"timestamp_begin":1763680777.045319496, "rt":0.27, "ut":0.13, "st":0.10}}
+{"SNPS_VCS_INTERNAL_ROOT_START_TIME": 1763680776.137336819}
+{"VCS_COMP_START_TIME": 1763680776.137336819}
+{"VCS_COMP_END_TIME": 1763680777.416199519}
+{"VCS_USER_OPTIONS": "-sverilog alu.sv constants.sv controlpath.sv datapath.sv library.sv memory.sv regfile.sv RISC240.sv SSegDisplayDriver.sv"}
