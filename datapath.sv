@@ -33,10 +33,12 @@ module datapath (
    output [15:0] pc,
    output [15:0] memAddr,
    output [15:0] MDRout,  // output of datapath just for viewing
+   output [15:0] add32sum, 
    inout  [15:0] dataBus,
    output [2:0]  selRD,
    output [2:0]  selRS1,
    output [2:0]  selRS2,
+   input [15:0]  add32length,
    input controlPts  cPts,
    input         clock,
    input         reset_L);
@@ -112,7 +114,9 @@ module datapath (
                                  .D(dest_out));
 
    assign {loadIR_L, loadMAR_L, writeMD_L, loadPC_L, loadReg_L} = dest_out[4:0];
-
+   
+   register #(.WIDTH(16)) sumReg(.out(add32sum), .in(newMDR), .load_L(~(marOut==15'h600)),
+                                     .clock(clock), .reset_L(reset_L));
    register #(.WIDTH(16)) memDataReg(.out(MDRout), .in(newMDR), .load_L(loadMDR_L),
                                      .clock(clock), .reset_L(reset_L));
    register #(.WIDTH(16)) pcReg(     .out(pc), .in(aluResult), .load_L(loadPC_L),

@@ -1,6 +1,3 @@
-        .ORG $2000
-SUM     .DW $0
-        .DW $0
 ARRAY   .DW $FFFF
         .DW $FFFE
 
@@ -26,13 +23,20 @@ ARRAY   .DW $FFFF
 
         .DW $BEEF
         .DW $BEEF
-LENGTH  .EQU $0002 ; len(array) = 8
+LENGTH  .EQU $0610 ; len(array) = 0
+.ORG $0600
+SUM     .DW $0
+        .DW $0
+
+        .ORG $0000
+        BRA $0010 ; since FPGA starts at $0000
 
         .ORG $0010
         MV r1, r0 ; (5 cycles)
         MV r2, r0; (5 cycles)
         MV r3, r0 ; (5 cycles)
-loop    SLTI r0, r3, LENGTH; (8 cycles)
+        LW r6, r0, LENGTH ; load length from $0610
+loop    SLTI r0, r3, r6; (8 cycles)
         BRZ done ; (7 if taken, 6 if not taken)
         MV r5, r3 ; (5 cycles)
         SLLI r5, r5, $2 ; (7 cycles)
