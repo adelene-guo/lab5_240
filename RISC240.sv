@@ -102,7 +102,7 @@ module RISC240_top();
    memorySystem memmod(.data(dataBus),
                     .address(memAddr),
                     .re_L(cPts.re_L),
-                    .we_L(cPts.we_L & memAddr==16'h610),
+                    .we_L(cPts.we_L | memAddr==16'h610),
                     .clock);
 
 

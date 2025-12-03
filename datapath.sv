@@ -90,7 +90,7 @@ module datapath (
 
    tridrive #(.WIDTH(16)) a(.data(aluResult), .bus(newMDR), .en_L(writeMD_L)),
                           b(.data(dataBus), .bus(newMDR), .en_L(cPts.re_L)),
-                          c(.data(MDRout), .bus(dataBus), .en_L(cPts.we_L & memAddr==16'h610));
+                          c(.data(MDRout), .bus(dataBus), .en_L(cPts.we_L));
 
    aluMux #(.WIDTH(16)) MuxA(.inA(regRS1),
                              .inB(pc),
