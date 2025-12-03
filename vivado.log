@@ -1,0 +1,974 @@
+#-----------------------------------------------------------
+# Vivado v2024.2 (64-bit)
+# SW Build 5239630 on Fri Nov 08 22:34:34 MST 2024
+# IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
+# SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
+# Start of session at: Wed Dec  3 13:07:14 2025
+# Process ID         : 745227
+# Current directory  : /afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240
+# Command line       : vivado
+# Log file           : /afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/vivado.log
+# Journal file       : /afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/vivado.jou
+# Running On         : hh-1305-03.lan.local.cmu.edu
+# Platform           : RedHatEnterprise
+# Operating System   : Red Hat Enterprise Linux release 8.10 (Ootpa)
+# Processor Detail   : 12th Gen Intel(R) Core(TM) i7-12700
+# CPU Frequency      : 2100.000 MHz
+# CPU Physical cores : 12
+# CPU Logical cores  : 20
+# Host memory        : 33109 MB
+# Swap memory        : 17179 MB
+# Total Virtual      : 50289 MB
+# Available Virtual  : 26145 MB
+#-----------------------------------------------------------
+start_gui
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280_es:part0:1.0 available at /afs/ece.cmu.edu/support/xilinx/xilinx.release/Vivado-2024.2/Vivado/2024.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vek280/es/rev_a/1.0/board.xml as part xcve2802-vsvh1760-2lp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280_es:part0:1.1 available at /afs/ece.cmu.edu/support/xilinx/xilinx.release/Vivado-2024.2/Vivado/2024.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vek280/es/rev_a/1.1/board.xml as part xcve2802-vsvh1760-2lp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280_es_revb:part0:1.0 available at /afs/ece.cmu.edu/support/xilinx/xilinx.release/Vivado-2024.2/Vivado/2024.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vek280/es/rev_b/1.0/board.xml as part xcve2802-vsvh1760-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280_es_revb:part0:1.1 available at /afs/ece.cmu.edu/support/xilinx/xilinx.release/Vivado-2024.2/Vivado/2024.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vek280/es/rev_b/1.1/board.xml as part xcve2802-vsvh1760-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208ld:part0:2.0 available at /afs/ece.cmu.edu/support/xilinx/xilinx.release/Vivado-2024.2/Vivado/2024.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu208ld/production/2.0/board.xml as part xczu58dr-fsvg1517-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216ld:part0:2.0 available at /afs/ece.cmu.edu/support/xilinx/xilinx.release/Vivado-2024.2/Vivado/2024.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216ld/production/2.0/board.xml as part xczu59dr-ffvf1760-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670ld:part0:1.0 available at /afs/ece.cmu.edu/support/xilinx/xilinx.release/Vivado-2024.2/Vivado/2024.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670ld/1.0/board.xml as part xczu57dr-fsve1156-2-i specified in board_part file is either invalid or not available
+open_project /afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/afs/ece.cmu.edu/support/xilinx/xilinx.release/Vivado-2024.2/Vivado/2024.2/data/ip'.
+update_compile_order -fileset sources_1
+create_ip -name dist_mem_gen -vendor xilinx.com -library ip -version 8.0 -module_name dist_mem_gen_3
+set_property -dict [list \
+  CONFIG.coefficient_file {/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/memory.coe} \
+  CONFIG.depth {16384} \
+] [get_ips dist_mem_gen_3]
+INFO: [IP_Flow 19-3484] Absolute path of file '/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/memory.coe' provided. It will be converted relative to IP Instance files '../../../../../memory.coe'
+generate_target {instantiation_template} [get_files /afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.srcs/sources_1/ip/dist_mem_gen_3/dist_mem_gen_3.xci]
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'dist_mem_gen_3'...
+generate_target all [get_files  /afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.srcs/sources_1/ip/dist_mem_gen_3/dist_mem_gen_3.xci]
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'dist_mem_gen_3'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'dist_mem_gen_3'...
+INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'dist_mem_gen_3'...
+catch { config_ip_cache -export [get_ips -all dist_mem_gen_3] }
+INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: dist_mem_gen_3
+export_ip_user_files -of_objects [get_files /afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.srcs/sources_1/ip/dist_mem_gen_3/dist_mem_gen_3.xci] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] /afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.srcs/sources_1/ip/dist_mem_gen_3/dist_mem_gen_3.xci]
+launch_runs dist_mem_gen_3_synth_1 -jobs 10
+INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: dist_mem_gen_3
+[Wed Dec  3 13:09:18 2025] Launched dist_mem_gen_3_synth_1...
+Run output will be captured here: /afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.runs/dist_mem_gen_3_synth_1/runme.log
+INFO: [Vivado 12-4357] Exporting simulation files for 'dist_mem_gen_3'... please wait for 'dist_mem_gen_3_synth_1' run to finish...
+wait_on_run dist_mem_gen_3_synth_1
+[Wed Dec  3 13:09:18 2025] Waiting for dist_mem_gen_3_synth_1 to finish...
+[Wed Dec  3 13:09:23 2025] Waiting for dist_mem_gen_3_synth_1 to finish...
+[Wed Dec  3 13:09:28 2025] Waiting for dist_mem_gen_3_synth_1 to finish...
+[Wed Dec  3 13:09:33 2025] Waiting for dist_mem_gen_3_synth_1 to finish...
+[Wed Dec  3 13:09:43 2025] Waiting for dist_mem_gen_3_synth_1 to finish...
+[Wed Dec  3 13:09:53 2025] Waiting for dist_mem_gen_3_synth_1 to finish...
+[Wed Dec  3 13:10:03 2025] Waiting for dist_mem_gen_3_synth_1 to finish...
+
+*** Running vivado
+    with args -log dist_mem_gen_3.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source dist_mem_gen_3.tcl
+
+
+****** Vivado v2024.2 (64-bit)
+  **** SW Build 5239630 on Fri Nov 08 22:34:34 MST 2024
+  **** IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
+  **** SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
+  **** Start of session at: Wed Dec  3 13:09:19 2025
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source dist_mem_gen_3.tcl -notrace
+INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: dist_mem_gen_3
+Command: synth_design -top dist_mem_gen_3 -part xc7s50csga324-1 -incremental_mode off -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7s50'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7s50'
+INFO: [Device 21-403] Loading part xc7s50csga324-1
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 7 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 746764
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 2142.609 ; gain = 417.711 ; free physical = 790 ; free virtual = 22836
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'dist_mem_gen_3' [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.gen/sources_1/ip/dist_mem_gen_3/synth/dist_mem_gen_3.vhd:69]
+	Parameter C_FAMILY bound to: spartan7 - type: string 
+	Parameter C_ADDR_WIDTH bound to: 14 - type: integer 
+	Parameter C_DEFAULT_DATA bound to: 0 - type: string 
+	Parameter C_DEPTH bound to: 16384 - type: integer 
+	Parameter C_HAS_CLK bound to: 1 - type: integer 
+	Parameter C_HAS_D bound to: 1 - type: integer 
+	Parameter C_HAS_DPO bound to: 0 - type: integer 
+	Parameter C_HAS_DPRA bound to: 0 - type: integer 
+	Parameter C_HAS_I_CE bound to: 0 - type: integer 
+	Parameter C_HAS_QDPO bound to: 0 - type: integer 
+	Parameter C_HAS_QDPO_CE bound to: 0 - type: integer 
+	Parameter C_HAS_QDPO_CLK bound to: 0 - type: integer 
+	Parameter C_HAS_QDPO_RST bound to: 0 - type: integer 
+	Parameter C_HAS_QDPO_SRST bound to: 0 - type: integer 
+	Parameter C_HAS_QSPO bound to: 0 - type: integer 
+	Parameter C_HAS_QSPO_CE bound to: 0 - type: integer 
+	Parameter C_HAS_QSPO_RST bound to: 0 - type: integer 
+	Parameter C_HAS_QSPO_SRST bound to: 0 - type: integer 
+	Parameter C_HAS_SPO bound to: 1 - type: integer 
+	Parameter C_HAS_WE bound to: 1 - type: integer 
+	Parameter C_MEM_INIT_FILE bound to: dist_mem_gen_3.mif - type: string 
+	Parameter C_ELABORATION_DIR bound to: ./ - type: string 
+	Parameter C_MEM_TYPE bound to: 1 - type: integer 
+	Parameter C_PIPELINE_STAGES bound to: 0 - type: integer 
+	Parameter C_QCE_JOINED bound to: 0 - type: integer 
+	Parameter C_QUALIFY_WE bound to: 0 - type: integer 
+	Parameter C_READ_MIF bound to: 1 - type: integer 
+	Parameter C_REG_A_D_INPUTS bound to: 0 - type: integer 
+	Parameter C_REG_DPRA_INPUT bound to: 0 - type: integer 
+	Parameter C_SYNC_ENABLE bound to: 1 - type: integer 
+	Parameter C_WIDTH bound to: 16 - type: integer 
+	Parameter C_PARSER_TYPE bound to: 1 - type: integer 
+INFO: [Synth 8-3491] module 'dist_mem_gen_v8_0_15' declared at '/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.gen/sources_1/ip/dist_mem_gen_3/hdl/dist_mem_gen_v8_0_vhsyn_rfs.vhd:3191' bound to instance 'U0' of component 'dist_mem_gen_v8_0_15' [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.gen/sources_1/ip/dist_mem_gen_3/synth/dist_mem_gen_3.vhd:135]
+INFO: [Synth 8-256] done synthesizing module 'dist_mem_gen_3' (0#1) [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.gen/sources_1/ip/dist_mem_gen_3/synth/dist_mem_gen_3.vhd:69]
+WARNING: [Synth 8-7129] Port qspo[15] in module spram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port qspo[14] in module spram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port qspo[13] in module spram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port qspo[12] in module spram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port qspo[11] in module spram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port qspo[10] in module spram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port qspo[9] in module spram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port qspo[8] in module spram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port qspo[7] in module spram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port qspo[6] in module spram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port qspo[5] in module spram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port qspo[4] in module spram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port qspo[3] in module spram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port qspo[2] in module spram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port qspo[1] in module spram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port qspo[0] in module spram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_ce in module spram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port qspo_ce in module spram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port qspo_rst in module spram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port qspo_srst in module spram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dpo[15] in module dist_mem_gen_v8_0_15_synth is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dpo[14] in module dist_mem_gen_v8_0_15_synth is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dpo[13] in module dist_mem_gen_v8_0_15_synth is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dpo[12] in module dist_mem_gen_v8_0_15_synth is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dpo[11] in module dist_mem_gen_v8_0_15_synth is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dpo[10] in module dist_mem_gen_v8_0_15_synth is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dpo[9] in module dist_mem_gen_v8_0_15_synth is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dpo[8] in module dist_mem_gen_v8_0_15_synth is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dpo[7] in module dist_mem_gen_v8_0_15_synth is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dpo[6] in module dist_mem_gen_v8_0_15_synth is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dpo[5] in module dist_mem_gen_v8_0_15_synth is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dpo[4] in module dist_mem_gen_v8_0_15_synth is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dpo[3] in module dist_mem_gen_v8_0_15_synth is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dpo[2] in module dist_mem_gen_v8_0_15_synth is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dpo[1] in module dist_mem_gen_v8_0_15_synth is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dpo[0] in module dist_mem_gen_v8_0_15_synth is either unconnected or has no load
+WARNING: [Synth 8-7129] Port qdpo[15] in module dist_mem_gen_v8_0_15_synth is either unconnected or has no load
+WARNING: [Synth 8-7129] Port qdpo[14] in module dist_mem_gen_v8_0_15_synth is either unconnected or has no load
+WARNING: [Synth 8-7129] Port qdpo[13] in module dist_mem_gen_v8_0_15_synth is either unconnected or has no load
+WARNING: [Synth 8-7129] Port qdpo[12] in module dist_mem_gen_v8_0_15_synth is either unconnected or has no load
+WARNING: [Synth 8-7129] Port qdpo[11] in module dist_mem_gen_v8_0_15_synth is either unconnected or has no load
+WARNING: [Synth 8-7129] Port qdpo[10] in module dist_mem_gen_v8_0_15_synth is either unconnected or has no load
+WARNING: [Synth 8-7129] Port qdpo[9] in module dist_mem_gen_v8_0_15_synth is either unconnected or has no load
+WARNING: [Synth 8-7129] Port qdpo[8] in module dist_mem_gen_v8_0_15_synth is either unconnected or has no load
+WARNING: [Synth 8-7129] Port qdpo[7] in module dist_mem_gen_v8_0_15_synth is either unconnected or has no load
+WARNING: [Synth 8-7129] Port qdpo[6] in module dist_mem_gen_v8_0_15_synth is either unconnected or has no load
+WARNING: [Synth 8-7129] Port qdpo[5] in module dist_mem_gen_v8_0_15_synth is either unconnected or has no load
+WARNING: [Synth 8-7129] Port qdpo[4] in module dist_mem_gen_v8_0_15_synth is either unconnected or has no load
+WARNING: [Synth 8-7129] Port qdpo[3] in module dist_mem_gen_v8_0_15_synth is either unconnected or has no load
+WARNING: [Synth 8-7129] Port qdpo[2] in module dist_mem_gen_v8_0_15_synth is either unconnected or has no load
+WARNING: [Synth 8-7129] Port qdpo[1] in module dist_mem_gen_v8_0_15_synth is either unconnected or has no load
+WARNING: [Synth 8-7129] Port qdpo[0] in module dist_mem_gen_v8_0_15_synth is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dpra[13] in module dist_mem_gen_v8_0_15_synth is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dpra[12] in module dist_mem_gen_v8_0_15_synth is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dpra[11] in module dist_mem_gen_v8_0_15_synth is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dpra[10] in module dist_mem_gen_v8_0_15_synth is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dpra[9] in module dist_mem_gen_v8_0_15_synth is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dpra[8] in module dist_mem_gen_v8_0_15_synth is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dpra[7] in module dist_mem_gen_v8_0_15_synth is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dpra[6] in module dist_mem_gen_v8_0_15_synth is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dpra[5] in module dist_mem_gen_v8_0_15_synth is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dpra[4] in module dist_mem_gen_v8_0_15_synth is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dpra[3] in module dist_mem_gen_v8_0_15_synth is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dpra[2] in module dist_mem_gen_v8_0_15_synth is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dpra[1] in module dist_mem_gen_v8_0_15_synth is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dpra[0] in module dist_mem_gen_v8_0_15_synth is either unconnected or has no load
+WARNING: [Synth 8-7129] Port qdpo_ce in module dist_mem_gen_v8_0_15_synth is either unconnected or has no load
+WARNING: [Synth 8-7129] Port qdpo_clk in module dist_mem_gen_v8_0_15_synth is either unconnected or has no load
+WARNING: [Synth 8-7129] Port qdpo_rst in module dist_mem_gen_v8_0_15_synth is either unconnected or has no load
+WARNING: [Synth 8-7129] Port qdpo_srst in module dist_mem_gen_v8_0_15_synth is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dpra[13] in module dist_mem_gen_v8_0_15 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dpra[12] in module dist_mem_gen_v8_0_15 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dpra[11] in module dist_mem_gen_v8_0_15 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dpra[10] in module dist_mem_gen_v8_0_15 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dpra[9] in module dist_mem_gen_v8_0_15 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dpra[8] in module dist_mem_gen_v8_0_15 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dpra[7] in module dist_mem_gen_v8_0_15 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dpra[6] in module dist_mem_gen_v8_0_15 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dpra[5] in module dist_mem_gen_v8_0_15 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dpra[4] in module dist_mem_gen_v8_0_15 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dpra[3] in module dist_mem_gen_v8_0_15 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dpra[2] in module dist_mem_gen_v8_0_15 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dpra[1] in module dist_mem_gen_v8_0_15 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dpra[0] in module dist_mem_gen_v8_0_15 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_ce in module dist_mem_gen_v8_0_15 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port qspo_ce in module dist_mem_gen_v8_0_15 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port qdpo_ce in module dist_mem_gen_v8_0_15 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port qdpo_clk in module dist_mem_gen_v8_0_15 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port qspo_rst in module dist_mem_gen_v8_0_15 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port qdpo_rst in module dist_mem_gen_v8_0_15 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port qspo_srst in module dist_mem_gen_v8_0_15 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port qdpo_srst in module dist_mem_gen_v8_0_15 is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2304.148 ; gain = 579.250 ; free physical = 688 ; free virtual = 22677
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2304.148 ; gain = 579.250 ; free physical = 688 ; free virtual = 22678
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2304.148 ; gain = 579.250 ; free physical = 688 ; free virtual = 22678
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2304.148 ; gain = 0.000 ; free physical = 687 ; free virtual = 22677
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.gen/sources_1/ip/dist_mem_gen_3/dist_mem_gen_3_ooc.xdc] for cell 'U0'
+Finished Parsing XDC File [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.gen/sources_1/ip/dist_mem_gen_3/dist_mem_gen_3_ooc.xdc] for cell 'U0'
+Parsing XDC File [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.runs/dist_mem_gen_3_synth_1/dont_touch.xdc]
+Finished Parsing XDC File [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.runs/dist_mem_gen_3_synth_1/dont_touch.xdc]
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2367.809 ; gain = 0.000 ; free physical = 681 ; free virtual = 22669
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2367.809 ; gain = 0.000 ; free physical = 682 ; free virtual = 22669
+INFO: [Designutils 20-5008] Incremental synthesis strategy off
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 2367.809 ; gain = 642.910 ; free physical = 686 ; free virtual = 22667
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7s50csga324-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 2375.812 ; gain = 650.914 ; free physical = 686 ; free virtual = 22667
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property KEEP_HIERARCHY = SOFT for U0. (constraint file  /afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.runs/dist_mem_gen_3_synth_1/dont_touch.xdc, line 9).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 2375.812 ; gain = 650.914 ; free physical = 686 ; free virtual = 22667
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 2375.812 ; gain = 650.914 ; free physical = 687 ; free virtual = 22667
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Registers : 
+	               16 Bit    Registers := 1     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 120 (col length:60)
+BRAMs: 150 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-7129] Port dpo[15] in module dist_mem_gen_v8_0_15 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dpo[14] in module dist_mem_gen_v8_0_15 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dpo[13] in module dist_mem_gen_v8_0_15 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dpo[12] in module dist_mem_gen_v8_0_15 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dpo[11] in module dist_mem_gen_v8_0_15 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dpo[10] in module dist_mem_gen_v8_0_15 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dpo[9] in module dist_mem_gen_v8_0_15 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dpo[8] in module dist_mem_gen_v8_0_15 is either unconnected or has no load
+INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 2399.828 ; gain = 674.930 ; free physical = 680 ; free virtual = 22652
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Distributed RAM: Preliminary Mapping Report (see note below)
++------------+-----------------------------------------------------------+-----------+----------------------+-------------------+
+|Module Name | RTL Object                                                | Inference | Size (Depth x Width) | Primitives        | 
++------------+-----------------------------------------------------------+-----------+----------------------+-------------------+
+|U0          | synth_options.dist_mem_inst/gen_sp_ram.spram_inst/ram_reg | Implied   | 16 K x 16            | RAM256X1S x 1024  | 
++------------+-----------------------------------------------------------+-----------+----------------------+-------------------+
+
+Note: The table above is a preliminary report that shows the Distributed RAMs at the current stage of the synthesis flow. Some Distributed RAMs may be reimplemented as non Distributed RAM primitives later in the synthesis flow. Multiple instantiated RAMs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 2407.828 ; gain = 682.930 ; free physical = 681 ; free virtual = 22647
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 2416.828 ; gain = 691.930 ; free physical = 678 ; free virtual = 22638
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Distributed RAM: Final Mapping Report
++------------+-----------------------------------------------------------+-----------+----------------------+-------------------+
+|Module Name | RTL Object                                                | Inference | Size (Depth x Width) | Primitives        | 
++------------+-----------------------------------------------------------+-----------+----------------------+-------------------+
+|U0          | synth_options.dist_mem_inst/gen_sp_ram.spram_inst/ram_reg | Implied   | 16 K x 16            | RAM256X1S x 1024  | 
++------------+-----------------------------------------------------------+-----------+----------------------+-------------------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 2425.844 ; gain = 700.945 ; free physical = 675 ; free virtual = 22632
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 2583.656 ; gain = 858.758 ; free physical = 653 ; free virtual = 22493
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 2583.656 ; gain = 858.758 ; free physical = 653 ; free virtual = 22493
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 2583.656 ; gain = 858.758 ; free physical = 655 ; free virtual = 22492
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 2583.656 ; gain = 858.758 ; free physical = 655 ; free virtual = 22492
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 2583.656 ; gain = 858.758 ; free physical = 655 ; free virtual = 22492
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 2583.656 ; gain = 858.758 ; free physical = 655 ; free virtual = 22492
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+----------+------+
+|      |Cell      |Count |
++------+----------+------+
+|1     |LUT2      |    10|
+|2     |LUT6      |   336|
+|3     |MUXF7     |   128|
+|4     |MUXF8     |    64|
+|5     |RAM256X1S |  1024|
+|6     |FDRE      |    16|
++------+----------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 2583.656 ; gain = 858.758 ; free physical = 655 ; free virtual = 22492
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 71 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 2583.656 ; gain = 795.098 ; free physical = 654 ; free virtual = 22491
+Synthesis Optimization Complete : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 2583.664 ; gain = 858.758 ; free physical = 654 ; free virtual = 22491
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2583.664 ; gain = 0.000 ; free physical = 819 ; free virtual = 22656
+INFO: [Netlist 29-17] Analyzing 1216 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+WARNING: [Netlist 29-101] Netlist 'dist_mem_gen_3' is not ideal for floorplanning, since the cellview 'spram' contains a large number of primitives.  Please consider enabling hierarchy in synthesis if you want to do floorplanning.
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2639.684 ; gain = 0.000 ; free physical = 809 ; free virtual = 22646
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 1024 instances were transformed.
+  RAM256X1S => RAM256X1S (MUXF7(x2), MUXF8, RAMS64E(x4)): 1024 instances
+
+Synth Design complete | Checksum: fab4fec6
+INFO: [Common 17-83] Releasing license: Synthesis
+20 Infos, 102 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:16 ; elapsed = 00:00:19 . Memory (MB): peak = 2639.684 ; gain = 1088.250 ; free physical = 809 ; free virtual = 22646
+INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 1820.364; main = 1778.042; forked = 273.164
+INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 3338.332; main = 2639.688; forked = 938.500
+Write ShapeDB Complete: Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2663.695 ; gain = 0.000 ; free physical = 805 ; free virtual = 22645
+INFO: [Common 17-1381] The checkpoint '/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.runs/dist_mem_gen_3_synth_1/dist_mem_gen_3.dcp' has been generated.
+INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP dist_mem_gen_3, cache-ID = 194cfb3d305c78ef
+INFO: [Coretcl 2-1174] Renamed 3 cell refs.
+Write ShapeDB Complete: Time (s): cpu = 00:00:00.04 ; elapsed = 00:00:00.02 . Memory (MB): peak = 2663.695 ; gain = 0.000 ; free physical = 798 ; free virtual = 22646
+INFO: [Common 17-1381] The checkpoint '/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.runs/dist_mem_gen_3_synth_1/dist_mem_gen_3.dcp' has been generated.
+INFO: [Vivado 12-24828] Executing command : report_utilization -file dist_mem_gen_3_utilization_synth.rpt -pb dist_mem_gen_3_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Wed Dec  3 13:09:49 2025...
+[Wed Dec  3 13:10:03 2025] dist_mem_gen_3_synth_1 finished
+wait_on_runs: Time (s): cpu = 00:00:02 ; elapsed = 00:00:45 . Memory (MB): peak = 8169.172 ; gain = 0.000 ; free physical = 2310 ; free virtual = 24161
+export_simulation -lib_map_path [list {modelsim=/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.cache/compile_simlib/modelsim} {questa=/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.cache/compile_simlib/questa} {xcelium=/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.cache/compile_simlib/xcelium} {vcs=/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.cache/compile_simlib/vcs} {riviera=/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.cache/compile_simlib/riviera}] -of_objects [get_files /afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.srcs/sources_1/ip/dist_mem_gen_3/dist_mem_gen_3.xci] -directory /afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.ip_user_files/sim_scripts -ip_user_files_dir /afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.ip_user_files -ipstatic_source_dir /afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.ip_user_files/ipstatic -use_ip_compiled_libs -force -quiet
+create_ip -name dist_mem_gen -vendor xilinx.com -library ip -version 8.0 -module_name dist_mem_gen_4
+set_property -dict [list \
+  CONFIG.coefficient_file {/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/memory.coe} \
+  CONFIG.depth {16384} \
+] [get_ips dist_mem_gen_4]
+INFO: [IP_Flow 19-3484] Absolute path of file '/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/memory.coe' provided. It will be converted relative to IP Instance files '../../../../../memory.coe'
+generate_target {instantiation_template} [get_files /afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.srcs/sources_1/ip/dist_mem_gen_4/dist_mem_gen_4.xci]
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'dist_mem_gen_4'...
+update_compile_order -fileset sources_1
+set_property generate_synth_checkpoint false [get_files  /afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.srcs/sources_1/ip/dist_mem_gen_4/dist_mem_gen_4.xci]
+generate_target all [get_files  /afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.srcs/sources_1/ip/dist_mem_gen_4/dist_mem_gen_4.xci]
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'dist_mem_gen_4'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'dist_mem_gen_4'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'dist_mem_gen_4'...
+INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'dist_mem_gen_4'...
+export_ip_user_files -of_objects [get_files /afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.srcs/sources_1/ip/dist_mem_gen_4/dist_mem_gen_4.xci] -no_script -sync -force -quiet
+export_simulation -lib_map_path [list {modelsim=/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.cache/compile_simlib/modelsim} {questa=/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.cache/compile_simlib/questa} {xcelium=/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.cache/compile_simlib/xcelium} {vcs=/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.cache/compile_simlib/vcs} {riviera=/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.cache/compile_simlib/riviera}] -of_objects [get_files /afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.srcs/sources_1/ip/dist_mem_gen_4/dist_mem_gen_4.xci] -directory /afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.ip_user_files/sim_scripts -ip_user_files_dir /afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.ip_user_files -ipstatic_source_dir /afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.ip_user_files/ipstatic -use_ip_compiled_libs -force -quiet
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/controlpath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/controlpath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/controlpath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/controlpath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.srcs/utils_1/imports/synth_1/RISC240_top.dcp with file /afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.runs/synth_1/RISC240_top.dcp
+launch_runs impl_1 -to_step write_bitstream -jobs 10
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/controlpath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/controlpath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+[Wed Dec  3 13:23:13 2025] Launched synth_1...
+Run output will be captured here: /afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.runs/synth_1/runme.log
+[Wed Dec  3 13:23:13 2025] Launched impl_1...
+Run output will be captured here: /afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.runs/impl_1/runme.log
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/controlpath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/controlpath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.srcs/utils_1/imports/synth_1/RISC240_top.dcp with file /afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.runs/synth_1/RISC240_top.dcp
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/controlpath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/controlpath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/controlpath.sv:]
+launch_runs impl_1 -to_step write_bitstream -jobs 10
+[Wed Dec  3 13:43:19 2025] Launched synth_1...
+Run output will be captured here: /afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.runs/synth_1/runme.log
+[Wed Dec  3 13:43:19 2025] Launched impl_1...
+Run output will be captured here: /afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.runs/impl_1/runme.log
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/controlpath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+open_hw_manager
+connect_hw_server -allow_non_jtag
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-2222] Launching hw_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx hw_server v2024.2
+  **** Build date : Oct 29 2024 at 10:16:47
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+
+INFO: [Labtools 27-3415] Connecting to cs_server url TCP:localhost:0
+INFO: [Labtools 27-3417] Launching cs_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+
+******** Xilinx cs_server v2024.2.0
+  ****** Build date   : Oct 30 2024-14:19:07
+    **** Build number : 2024.2.1730312347
+      ** Copyright 2017-2022 Xilinx, Inc. All Rights Reserved.
+      ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+
+
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Xilinx/887235230346A
+set_property PROGRAM.FILE {/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.runs/impl_1/RISC240_top.bit} [get_hw_devices xc7s50_0]
+current_hw_device [get_hw_devices xc7s50_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7s50_0] 0]
+INFO: [Labtools 27-1435] Device xc7s50 (JTAG device index = 0) is not programmed (DONE status = 0).
+set_property PROBES.FILE {} [get_hw_devices xc7s50_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7s50_0]
+set_property PROGRAM.FILE {/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.runs/impl_1/RISC240_top.bit} [get_hw_devices xc7s50_0]
+program_hw_devices [get_hw_devices xc7s50_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7s50_0] 0]
+INFO: [Labtools 27-1434] Device xc7s50 (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/controlpath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/controlpath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.srcs/utils_1/imports/synth_1/RISC240_top.dcp with file /afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.runs/synth_1/RISC240_top.dcp
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/controlpath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/controlpath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/controlpath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/controlpath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+launch_runs impl_1 -to_step write_bitstream -jobs 10
+[Wed Dec  3 14:00:52 2025] Launched synth_1...
+Run output will be captured here: /afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.runs/synth_1/runme.log
+[Wed Dec  3 14:00:52 2025] Launched impl_1...
+Run output will be captured here: /afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7s50_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7s50_0]
+set_property PROGRAM.FILE {/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.runs/impl_1/RISC240_top.bit} [get_hw_devices xc7s50_0]
+program_hw_devices [get_hw_devices xc7s50_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7s50_0] 0]
+INFO: [Labtools 27-1434] Device xc7s50 (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/controlpath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/controlpath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/controlpath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/controlpath.sv:]
+close_hw_manager
+create_ip -name dist_mem_gen -vendor xilinx.com -library ip -version 8.0 -module_name dist_mem_gen_5
+set_property -dict [list \
+  CONFIG.coefficient_file {/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/memory.coe} \
+  CONFIG.depth {16384} \
+] [get_ips dist_mem_gen_5]
+INFO: [IP_Flow 19-3484] Absolute path of file '/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/memory.coe' provided. It will be converted relative to IP Instance files '../../../../../memory.coe'
+generate_target {instantiation_template} [get_files /afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.srcs/sources_1/ip/dist_mem_gen_5/dist_mem_gen_5.xci]
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'dist_mem_gen_5'...
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/controlpath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/controlpath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+set_property generate_synth_checkpoint false [get_files  /afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.srcs/sources_1/ip/dist_mem_gen_5/dist_mem_gen_5.xci]
+generate_target all [get_files  /afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.srcs/sources_1/ip/dist_mem_gen_5/dist_mem_gen_5.xci]
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'dist_mem_gen_5'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'dist_mem_gen_5'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'dist_mem_gen_5'...
+INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'dist_mem_gen_5'...
+export_ip_user_files -of_objects [get_files /afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.srcs/sources_1/ip/dist_mem_gen_5/dist_mem_gen_5.xci] -no_script -sync -force -quiet
+export_simulation -lib_map_path [list {modelsim=/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.cache/compile_simlib/modelsim} {questa=/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.cache/compile_simlib/questa} {xcelium=/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.cache/compile_simlib/xcelium} {vcs=/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.cache/compile_simlib/vcs} {riviera=/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.cache/compile_simlib/riviera}] -of_objects [get_files /afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.srcs/sources_1/ip/dist_mem_gen_5/dist_mem_gen_5.xci] -directory /afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.ip_user_files/sim_scripts -ip_user_files_dir /afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.ip_user_files -ipstatic_source_dir /afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.ip_user_files/ipstatic -use_ip_compiled_libs -force -quiet
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/controlpath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/controlpath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/controlpath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+update_compile_order -fileset sources_1
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/controlpath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/controlpath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.srcs/utils_1/imports/synth_1/RISC240_top.dcp with file /afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.runs/synth_1/RISC240_top.dcp
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/controlpath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/controlpath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+launch_runs impl_1 -to_step write_bitstream -jobs 10
+[Wed Dec  3 14:10:20 2025] Launched synth_1...
+Run output will be captured here: /afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.runs/synth_1/runme.log
+[Wed Dec  3 14:10:20 2025] Launched impl_1...
+Run output will be captured here: /afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.runs/impl_1/runme.log
+open_hw_manager
+connect_hw_server -allow_non_jtag
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-2222] Launching hw_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx hw_server v2024.2
+  **** Build date : Oct 29 2024 at 10:16:47
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+
+INFO: [Labtools 27-3415] Connecting to cs_server url TCP:localhost:0
+INFO: [Labtools 27-3417] Launching cs_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+
+******** Xilinx cs_server v2024.2.0
+  ****** Build date   : Oct 30 2024-14:19:07
+    **** Build number : 2024.2.1730312347
+      ** Copyright 2017-2022 Xilinx, Inc. All Rights Reserved.
+      ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+
+
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Xilinx/887235230346A
+set_property PROGRAM.FILE {/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.runs/impl_1/RISC240_top.bit} [get_hw_devices xc7s50_0]
+current_hw_device [get_hw_devices xc7s50_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7s50_0] 0]
+INFO: [Labtools 27-1434] Device xc7s50 (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+set_property PROBES.FILE {} [get_hw_devices xc7s50_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7s50_0]
+set_property PROGRAM.FILE {/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.runs/impl_1/RISC240_top.bit} [get_hw_devices xc7s50_0]
+program_hw_devices [get_hw_devices xc7s50_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7s50_0] 0]
+INFO: [Labtools 27-1434] Device xc7s50 (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/controlpath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/controlpath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/controlpath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/controlpath.sv:]
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.srcs/utils_1/imports/synth_1/RISC240_top.dcp with file /afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.runs/synth_1/RISC240_top.dcp
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/controlpath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/controlpath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+launch_runs impl_1 -to_step write_bitstream -jobs 10
+[Wed Dec  3 14:18:32 2025] Launched synth_1...
+Run output will be captured here: /afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.runs/synth_1/runme.log
+[Wed Dec  3 14:18:32 2025] Launched impl_1...
+Run output will be captured here: /afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7s50_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7s50_0]
+set_property PROGRAM.FILE {/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.runs/impl_1/RISC240_top.bit} [get_hw_devices xc7s50_0]
+program_hw_devices [get_hw_devices xc7s50_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7s50_0] 0]
+INFO: [Labtools 27-1434] Device xc7s50 (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+close_hw_manager
+export_ip_user_files -of_objects  [get_files /afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.srcs/sources_1/ip/dist_mem_gen_0/dist_mem_gen_0.xci] -no_script -reset -force -quiet
+remove_files  /afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.srcs/sources_1/ip/dist_mem_gen_0/dist_mem_gen_0.xci
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/controlpath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/controlpath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+export_ip_user_files -of_objects  [get_files /afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.srcs/sources_1/ip/dist_mem_gen_1/dist_mem_gen_1.xci] -no_script -reset -force -quiet
+remove_files  /afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.srcs/sources_1/ip/dist_mem_gen_1/dist_mem_gen_1.xci
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/controlpath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/controlpath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+export_ip_user_files -of_objects  [get_files /afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.srcs/sources_1/ip/dist_mem_gen_2/dist_mem_gen_2.xci] -no_script -reset -force -quiet
+remove_files  /afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.srcs/sources_1/ip/dist_mem_gen_2/dist_mem_gen_2.xci
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/controlpath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/controlpath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/controlpath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/controlpath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+export_ip_user_files -of_objects  [get_files /afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.srcs/sources_1/ip/dist_mem_gen_4/dist_mem_gen_4.xci] -no_script -reset -force -quiet
+remove_files  /afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.srcs/sources_1/ip/dist_mem_gen_4/dist_mem_gen_4.xci
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/controlpath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/controlpath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+export_ip_user_files -of_objects  [get_files /afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.srcs/sources_1/ip/dist_mem_gen_3/dist_mem_gen_3.xci] -no_script -reset -force -quiet
+remove_files  -fileset dist_mem_gen_3 /afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.srcs/sources_1/ip/dist_mem_gen_3/dist_mem_gen_3.xci
+INFO: [Project 1-386] Moving file '/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.srcs/sources_1/ip/dist_mem_gen_3/dist_mem_gen_3.xci' from fileset 'dist_mem_gen_3' to fileset 'sources_1'.
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/controlpath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/controlpath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/controlpath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/controlpath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+export_ip_user_files -of_objects  [get_files /afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.srcs/sources_1/ip/dist_mem_gen_5/dist_mem_gen_5.xci] -no_script -reset -force -quiet
+remove_files  /afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.srcs/sources_1/ip/dist_mem_gen_5/dist_mem_gen_5.xci
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/controlpath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/controlpath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+create_ip -name dist_mem_gen -vendor xilinx.com -library ip -version 8.0 -module_name dist_mem_gen_0
+set_property -dict [list \
+  CONFIG.coefficient_file {/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/memory.coe} \
+  CONFIG.depth {16384} \
+] [get_ips dist_mem_gen_0]
+INFO: [IP_Flow 19-3484] Absolute path of file '/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/memory.coe' provided. It will be converted relative to IP Instance files '../../../../../memory.coe'
+generate_target {instantiation_template} [get_files /afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.srcs/sources_1/ip/dist_mem_gen_0_1/dist_mem_gen_0.xci]
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'dist_mem_gen_0'...
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/controlpath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/controlpath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+set_property generate_synth_checkpoint false [get_files  /afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.srcs/sources_1/ip/dist_mem_gen_0_1/dist_mem_gen_0.xci]
+generate_target all [get_files  /afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.srcs/sources_1/ip/dist_mem_gen_0_1/dist_mem_gen_0.xci]
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'dist_mem_gen_0'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'dist_mem_gen_0'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'dist_mem_gen_0'...
+INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'dist_mem_gen_0'...
+export_ip_user_files -of_objects [get_files /afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.srcs/sources_1/ip/dist_mem_gen_0_1/dist_mem_gen_0.xci] -no_script -sync -force -quiet
+export_simulation -lib_map_path [list {modelsim=/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.cache/compile_simlib/modelsim} {questa=/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.cache/compile_simlib/questa} {xcelium=/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.cache/compile_simlib/xcelium} {vcs=/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.cache/compile_simlib/vcs} {riviera=/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.cache/compile_simlib/riviera}] -of_objects [get_files /afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.srcs/sources_1/ip/dist_mem_gen_0_1/dist_mem_gen_0.xci] -directory /afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.ip_user_files/sim_scripts -ip_user_files_dir /afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.ip_user_files -ipstatic_source_dir /afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.ip_user_files/ipstatic -use_ip_compiled_libs -force -quiet
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/controlpath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/controlpath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/controlpath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/controlpath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/controlpath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+update_compile_order -fileset sources_1
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/controlpath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/controlpath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/controlpath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/controlpath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.srcs/utils_1/imports/synth_1/RISC240_top.dcp with file /afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.runs/synth_1/RISC240_top.dcp
+launch_runs impl_1 -to_step write_bitstream -jobs 10
+[Wed Dec  3 14:51:07 2025] Launched synth_1...
+Run output will be captured here: /afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.runs/synth_1/runme.log
+[Wed Dec  3 14:51:07 2025] Launched impl_1...
+Run output will be captured here: /afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.runs/impl_1/runme.log
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/controlpath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/datapath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/controlpath.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/RISC240.sv:]
+open_hw_manager
+connect_hw_server -allow_non_jtag
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-2222] Launching hw_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx hw_server v2024.2
+  **** Build date : Oct 29 2024 at 10:16:47
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+
+INFO: [Labtools 27-3415] Connecting to cs_server url TCP:localhost:0
+INFO: [Labtools 27-3417] Launching cs_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+
+******** Xilinx cs_server v2024.2.0
+  ****** Build date   : Oct 30 2024-14:19:07
+    **** Build number : 2024.2.1730312347
+      ** Copyright 2017-2022 Xilinx, Inc. All Rights Reserved.
+      ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+
+
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Xilinx/887235230346A
+set_property PROGRAM.FILE {/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.runs/impl_1/RISC240_top.bit} [get_hw_devices xc7s50_0]
+current_hw_device [get_hw_devices xc7s50_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7s50_0] 0]
+INFO: [Labtools 27-1434] Device xc7s50 (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+set_property PROBES.FILE {} [get_hw_devices xc7s50_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7s50_0]
+set_property PROGRAM.FILE {/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.runs/impl_1/RISC240_top.bit} [get_hw_devices xc7s50_0]
+program_hw_devices [get_hw_devices xc7s50_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7s50_0] 0]
+INFO: [Labtools 27-1434] Device xc7s50 (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+close_hw_manager
+add_files -norecurse /afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/constants.sv
+WARNING: [filemgmt 56-12] File '/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/constants.sv' cannot be added to the project because it already exists in the project, skipping this file
+reset_run impl_1 -prev_step 
+launch_runs impl_1 -to_step write_bitstream -jobs 10
+[Wed Dec  3 14:56:28 2025] Launched impl_1...
+Run output will be captured here: /afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.runs/impl_1/runme.log
+open_hw_manager
+connect_hw_server -allow_non_jtag
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-2222] Launching hw_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx hw_server v2024.2
+  **** Build date : Oct 29 2024 at 10:16:47
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+
+INFO: [Labtools 27-3415] Connecting to cs_server url TCP:localhost:0
+INFO: [Labtools 27-3417] Launching cs_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+
+******** Xilinx cs_server v2024.2.0
+  ****** Build date   : Oct 30 2024-14:19:07
+    **** Build number : 2024.2.1730312347
+      ** Copyright 2017-2022 Xilinx, Inc. All Rights Reserved.
+      ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+
+
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Xilinx/887235230346A
+set_property PROGRAM.FILE {/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.runs/impl_1/RISC240_top.bit} [get_hw_devices xc7s50_0]
+current_hw_device [get_hw_devices xc7s50_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7s50_0] 0]
+INFO: [Labtools 27-1434] Device xc7s50 (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+set_property PROBES.FILE {} [get_hw_devices xc7s50_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7s50_0]
+set_property PROGRAM.FILE {/afs/andrew.cmu.edu/usr5/adieg/private/18240/lab5_240/project_1/project_1.runs/impl_1/RISC240_top.bit} [get_hw_devices xc7s50_0]
+program_hw_devices [get_hw_devices xc7s50_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7s50_0] 0]
+INFO: [Labtools 27-1434] Device xc7s50 (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+exit
+INFO: [Common 17-206] Exiting Vivado at Wed Dec  3 14:59:37 2025...

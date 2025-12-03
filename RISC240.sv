@@ -197,9 +197,9 @@ module RISC240_top();
                          .D1_SEG,
                          .D2_SEG,
                          .dpoints(8'h00));
-  register #(.WIDTH(16)) sumReg(.out(add32sum), .in(memData), .load_L(~(memAddr == 16'h600)),
+  register #(.WIDTH(16)) sumReg(.out(add32sum), .in(memData), .load_L(cPts.we_L & ~(memAddr == 16'h600)),
                                      .clock(clock), .reset_L(reset_L));
-  tridrive #(.WIDTH(16)) lengthReg(.bus(dataBus), .data(add32length), .en_L(cPts.we_L & ~(memAddr == 16'h610)));
+  tridrive #(.WIDTH(16)) lengthReg(.bus(dataBus), .data(add32length), .en_L(cPts.re_L & ~(memAddr == 16'h610)));
   always_comb begin
    LD[15] = ~cPts.re_L;
    LD[14] = ~cPts.we_L;

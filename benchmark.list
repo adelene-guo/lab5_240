@@ -38,19 +38,9 @@ addr data   label     opcode  operands
 004E F800             BRA             
 0050 0010                     BIG     
 0052 FE00             STOP            
-0054 FFFF  ARRAY      .DW     $FFFF   
-0056 FFFE             .DW     $FFFE   
-0058 FFFF             .DW     $FFFF   
-005A FFFE             .DW     $FFFE   
-005C FFFF             .DW     $FFFF   
-005E FFFF             .DW     $FFFF   
-0060 0000             .DW     $0000   
-0062 0001             .DW     $0001   
-0064 ABCD             .DW     $ABCD   
-0066 1234             .DW     $1234   
-0068 ABCD             .DW     $ABCD   
-006A 1234             .DW     $1234   
-006C CAFE             .DW     $CAFE   
-006E F00D             .DW     $F00D   
-0070 BEEF             .DW     $BEEF   
-0072 BEEF             .DW     $BEEF   
+0054 0000  ARRAY      .DW     $0000   
+0056 0001             .DW     $0001   
+0058 0000             .DW     $0000   
+005A 0001             .DW     $0001   
+005C 0000             .DW     $0000   
+005E 0001             .DW     $0001   
