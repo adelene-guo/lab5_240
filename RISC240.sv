@@ -49,7 +49,7 @@
  *
  */
 `ifdef synthesis  // When we connect to the FPGA board
-module RISC240_top(
+ module RISC240_top(
   output logic  [3:0] D1_AN, D2_AN,
   output logic  [7:0] D1_SEG, D2_SEG,
   output logic [15:0] LD,
@@ -102,7 +102,7 @@ module RISC240_top();
    memorySystem memmod(.data(dataBus),
                     .address(memAddr),
                     .re_L(cPts.re_L),
-                    .we_L(cPts.we_L),
+                    .we_L(cPts.we_L & memAddr==16'h610),
                     .clock);
 
 
@@ -155,7 +155,7 @@ module RISC240_top();
                disp0 = r3;
              end
       2'b11: begin
-               disp1 = r2;
+               disp1 = r6;
                disp0 = r1;
              end
     endcase
@@ -199,8 +199,7 @@ module RISC240_top();
                          .dpoints(8'h00));
   register #(.WIDTH(16)) sumReg(.out(add32sum), .in(memData), .load_L(~(memAddr == 16'h600)),
                                      .clock(clock), .reset_L(reset_L));
-  register #(.WIDTH(16)) lengthReg(.out(dataBus), .in(add32length), .load_L(~(memAddr == 16'h610)),
-                                     .clock(clock), .reset_L(reset_L));
+  tridrive #(.WIDTH(16)) lengthReg(.bus(dataBus), .data(add32length), .en_L(cPts.we_L & ~(memAddr == 16'h610)));
   always_comb begin
    LD[15] = ~cPts.re_L;
    LD[14] = ~cPts.we_L;

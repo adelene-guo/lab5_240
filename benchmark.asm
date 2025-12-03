@@ -1,4 +1,4 @@
-LENGTH  .EQU $0610 ; len(array) = 0
+LENGTH  .EQU $0610 ; ADDRESS OF LENGTH
         .ORG $0600
 SUM     .DW $0
         .DW $0
@@ -28,28 +28,12 @@ done    SW r0, r2, SUM ; (9 cycles)
         BRA big
         STOP ; (5 cycles)
 
-ARRAY   .DW $FFFF
-        .DW $FFFE
+ARRAY   .DW $0000
+        .DW $0001
 
-
-        .DW $FFFF
-        .DW $FFFE
-
-
-        .DW $FFFF
-        .DW $FFFF
 
         .DW $0000
         .DW $0001
 
-        .DW $ABCD
-        .DW $1234
-
-        .DW $ABCD
-        .DW $1234
-
-        .DW $CAFE
-        .DW $F00D
-
-        .DW $BEEF
-        .DW $BEEF
+        .DW $0000
+        .DW $0001
