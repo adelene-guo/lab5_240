@@ -134,6 +134,10 @@ module RISC240_top();
 `ifdef synthesis
   logic  [6:0] HEX7, HEX6, HEX5, HEX4, HEX3, HEX2, HEX1, HEX0;
   logic [15:0] disp1, disp0;
+  logic [15:0] add32sum;
+  logic [15:0] add32length;
+  assign add32sum = {2'b0, LD[13:0]};
+  assign add32length = {2'b0, SW[13:0]};
 
   always_comb begin
     disp1 = 16'h0000; disp0 = 16'h0000;
@@ -193,7 +197,10 @@ module RISC240_top();
                          .D1_SEG,
                          .D2_SEG,
                          .dpoints(8'h00));
-
+  register #(.WIDTH(16)) sumReg(.out(add32sum), .in(memData), .load_L(~(memAddr == 16'h600)),
+                                     .clock(clock), .reset_L(reset_L));
+  register #(.WIDTH(16)) lengthReg(.out(dataBus), .in(add32length), .load_L(~(memAddr == 16'h610)),
+                                     .clock(clock), .reset_L(reset_L));
   always_comb begin
    LD[15] = ~cPts.re_L;
    LD[14] = ~cPts.we_L;

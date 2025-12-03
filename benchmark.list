@@ -1,38 +1,56 @@
 addr data   label     opcode  operands
 ---- ----  --------   ------  --------
-2000 0000  SUM        .DW     $0      
-2002 0000             .DW     $0      
-2004 0001  ARRAY      .DW     $0001   
-2006 0001             .DW     $0001   
-2008 0000             .DW     $0000   
-200A 0001             .DW     $0001   
-0010 2040             MV      R1 R0   
-0012 20C0             MV      R3 R0   
-0014 5218  LOOP       SLTI    R0 R3   
-0016 0002                     LENGTH  
-0018 C800             BRZ             
-001A 003A                     DONE    
-001C 2118             MV      R4 R3   
-001E C320             SLLI    R4 R4   
-0020 0002                     $2      
-0022 2160             MV      R5 R4   
-0024 3168             ADDI    R5 R5   
+0600 0000  SUM        .DW     $0      
+0602 0000             .DW     $0      
+0000 F800             BRA             
+0002 0010                     $0010   
+0010 2040  BIG        MV      R1 R0   
+0012 2080             MV      R2 R0   
+0014 20C0             MV      R3 R0   
+0016 2980             LW      R6 R0   
+0018 0610                     LENGTH  
+001A 5398  LOOP       SLTI    R6 R3   
+001C 0000                     $0      
+001E C800             BRZ             
+0020 003E                     DONE    
+0022 2158             MV      R5 R3   
+0024 C368             SLLI    R5 R5   
 0026 0002                     $2      
-0028 2920             LW      R4 R4   
-002A 2004                     ARRAY   
+0028 3128             ADDI    R4 R5   
+002A 0002                     $2      
 002C 2968             LW      R5 R5   
-002E 2004                     ARRAY   
-0030 644C             .DW     $644C   
-0032 30D8             ADDI    R3 R3   
-0034 0001                     $1      
-0036 F800             BRA             
-0038 0014                     LOOP    
-003A 3802  DONE       SW      R0 R2   
-003C 2000                     SUM     
-003E 3140             LI      R5      
-0040 2000                     SUM     
-0042 3168             ADDI    R5 R5   
-0044 0002                     $2      
-0046 3829             SW      R5 R1   
-0048 0000                     $0      
-004A FE00             STOP            
+002E 0054                     ARRAY   
+0030 2920             LW      R4 R4   
+0032 0054                     ARRAY   
+0034 644C             .DW     $644C   
+0036 30D8             ADDI    R3 R3   
+0038 0001                     $1      
+003A F800             BRA             
+003C 001A                     LOOP    
+003E 3802  DONE       SW      R0 R2   
+0040 0600                     SUM     
+0042 3140             LI      R5      
+0044 0600                     SUM     
+0046 3168             ADDI    R5 R5   
+0048 0002                     $2      
+004A 3829             SW      R5 R1   
+004C 0000                     $0      
+004E F800             BRA             
+0050 0010                     BIG     
+0052 FE00             STOP            
+0054 FFFF  ARRAY      .DW     $FFFF   
+0056 FFFE             .DW     $FFFE   
+0058 FFFF             .DW     $FFFF   
+005A FFFE             .DW     $FFFE   
+005C FFFF             .DW     $FFFF   
+005E FFFF             .DW     $FFFF   
+0060 0000             .DW     $0000   
+0062 0001             .DW     $0001   
+0064 ABCD             .DW     $ABCD   
+0066 1234             .DW     $1234   
+0068 ABCD             .DW     $ABCD   
+006A 1234             .DW     $1234   
+006C CAFE             .DW     $CAFE   
+006E F00D             .DW     $F00D   
+0070 BEEF             .DW     $BEEF   
+0072 BEEF             .DW     $BEEF   

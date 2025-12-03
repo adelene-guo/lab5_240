@@ -1,0 +1,57 @@
+addr data   label     opcode  operands
+---- ----  --------   ------  --------
+2000 0000  SUM        .DW     $0      
+2002 0000             .DW     $0      
+2004 FFFF  ARRAY      .DW     $FFFF   
+2006 FFFE             .DW     $FFFE   
+2008 FFFF             .DW     $FFFF   
+200A FFFE             .DW     $FFFE   
+200C FFFF             .DW     $FFFF   
+200E FFFF             .DW     $FFFF   
+2010 0000             .DW     $0000   
+2012 0001             .DW     $0001   
+2014 ABCD             .DW     $ABCD   
+2016 1234             .DW     $1234   
+2018 ABCD             .DW     $ABCD   
+201A 1234             .DW     $1234   
+201C CAFE             .DW     $CAFE   
+201E F00D             .DW     $F00D   
+2020 BEEF             .DW     $BEEF   
+2022 BEEF             .DW     $BEEF   
+0010 2040             MV      R1 R0   
+0012 2080             MV      R2 R0   
+0014 20C0             MV      R3 R0   
+0016 5218  LOOP       SLTI    R0 R3   
+0018 0002                     LENGTH  
+001A C800             BRZ             
+001C 0048                     DONE    
+001E 2118             MV      R4 R3   
+0020 C320             SLLI    R4 R4   
+0022 0002                     $2      
+0024 3160             ADDI    R5 R4   
+0026 0002                     $2      
+0028 2920             LW      R4 R4   
+002A 2004                     ARRAY   
+002C 2968             LW      R5 R5   
+002E 2004                     ARRAY   
+0030 0095             ADD     R2 R2 R5
+0032 A800             BRC             
+0034 003A                     C       
+0036 F800             BRA             
+0038 003E                     NOC     
+003A 3048  C          ADDI    R1 R1   
+003C 0001                     $1      
+003E 004C  NOC        ADD     R1 R1 R4
+0040 30D8             ADDI    R3 R3   
+0042 0001                     $1      
+0044 F800             BRA             
+0046 0016                     LOOP    
+0048 3801  DONE       SW      R0 R1   
+004A 2000                     SUM     
+004C 3140             LI      R5      
+004E 2000                     SUM     
+0050 3168             ADDI    R5 R5   
+0052 0002                     $2      
+0054 382A             SW      R5 R2   
+0056 0000                     $0      
+0058 FE00             STOP            
